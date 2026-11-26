@@ -1,0 +1,106 @@
+/* Вхідний файл Tailwind CLI. Збірка: npm run build:css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Компоненти, які повторюються в розмітці */
+@layer components {
+  .section { @apply scroll-mt-16 px-4 py-20 sm:py-28; }
+  .title { @apply font-display text-3xl font-bold leading-tight sm:text-4xl; }
+  .lead { @apply mt-4 max-w-2xl text-lg text-night/75; }
+
+  .btn { @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-center font-semibold transition duration-200 hover:-translate-y-1 active:translate-y-0 motion-reduce:transform-none; }
+  .btn-primary { @apply bg-sun text-night shadow-lg shadow-sun/40 hover:shadow-xl hover:shadow-sun/60; }
+  .btn-ghost { @apply border-2 border-night/20 hover:border-ultra hover:text-ultra; }
+
+  .nav-link { @apply block rounded-xl px-3 py-2 decoration-sun decoration-4 underline-offset-8 hover:underline lg:p-0; }
+
+  .float-word { @apply absolute hidden animate-float select-none font-display text-5xl font-extrabold opacity-70 motion-reduce:animate-none lg:block; }
+
+  .lang-tab { @apply rounded-full bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20; }
+  .lang-tab[aria-pressed='true'] { @apply bg-white text-ultra; }
+
+  .bubble { @apply max-w-[85%] animate-pop rounded-3xl px-4 py-3 text-left text-lg font-medium motion-reduce:animate-none; }
+  .bubble-left { @apply origin-bottom-left self-start rounded-bl-md bg-white text-night; }
+  .bubble-right { @apply origin-bottom-right self-end rounded-br-md bg-sun text-night; }
+
+  .marquee-line { @apply whitespace-nowrap pr-4; }
+  .marquee-line b { @apply mx-6; }
+
+  /* Картка, що перевертається */
+  .flip { @apply block h-80 w-full text-left [perspective:1000px]; }
+  .flip-inner { @apply relative block h-full w-full transition-transform duration-700 [transform-style:preserve-3d] motion-reduce:transition-none; }
+  .flip[aria-pressed='true'] .flip-inner { @apply [transform:rotateY(180deg)]; }
+  .flip-face { @apply absolute inset-0 flex flex-col justify-between gap-3 rounded-[2rem] p-6 [backface-visibility:hidden]; }
+  .flip-back { @apply justify-center bg-night text-white [transform:rotateY(180deg)]; }
+  .card-name { @apply block font-display text-2xl font-bold; }
+  .phrase { @apply font-display text-xl font-bold text-sun; }
+
+  .step { @apply relative flex items-start gap-5; }
+  .step-badge { @apply z-10 grid size-[3.25rem] shrink-0 place-items-center rounded-full border-4 border-white bg-paper font-display text-sm font-bold text-night/50 transition duration-500; }
+  .step.is-active .step-badge { @apply scale-110 bg-ultra text-white; }
+  .step-title { @apply font-display text-xl font-bold; }
+
+  /* Тест */
+  .answer { @apply w-full rounded-2xl border-2 border-night/10 px-5 py-4 text-left text-lg font-medium transition hover:translate-x-1 hover:border-ultra motion-reduce:transform-none; }
+  .answer.is-right { @apply border-mint bg-mint/25; }
+  .answer.is-wrong { @apply animate-shake border-coral bg-coral/25 motion-reduce:animate-none; }
+  .confetti { @apply pointer-events-none absolute left-1/2 top-1/3 h-3 w-2 animate-confetti; }
+
+  .field-label { @apply block font-semibold; }
+  .chip span { @apply flex h-full cursor-pointer items-center justify-center rounded-2xl border-2 border-night/10 px-3 py-3 text-center font-medium transition hover:border-ultra; }
+  .chip input:checked + span { @apply border-ultra bg-ultra text-white; }
+  .chip input:focus-visible + span { @apply outline outline-4 outline-offset-2 outline-sun; }
+  .range { @apply mt-4 h-3 w-full cursor-pointer accent-ultra; }
+  .result-row { @apply flex items-baseline justify-between gap-4; }
+  .result-row dd { @apply font-display font-bold tabular-nums; }
+
+  .review { @apply !h-auto rounded-[2rem] p-8; }
+  .review blockquote { @apply text-xl font-medium leading-relaxed; }
+  .review figcaption { @apply mt-6 text-sm text-night/70; }
+
+  /* Акордеон: плавне розкриття через grid-template-rows */
+  .faq { @apply rounded-3xl bg-white px-6; }
+  .faq button { @apply flex w-full items-center justify-between gap-4 py-5 text-left text-lg font-semibold; }
+  .faq-icon { @apply relative size-5 shrink-0 transition-transform duration-300; }
+  .faq-icon::before, .faq-icon::after { content: ''; @apply absolute left-0 top-1/2 h-[3px] w-full -translate-y-1/2 rounded bg-ultra; }
+  .faq-icon::after { @apply rotate-90; }
+  .faq button[aria-expanded='true'] .faq-icon { @apply rotate-45; }
+  .faq-panel { @apply grid grid-rows-[1fr] transition-all duration-300 motion-reduce:transition-none; }
+  .faq-panel > div { @apply overflow-hidden; }
+  .faq-panel p { @apply pb-5 text-night/80; }
+  .js .faq-panel { @apply invisible grid-rows-[0fr]; }
+  .js .faq-panel.is-open { @apply visible grid-rows-[1fr]; }
+
+  .input { @apply mt-2 w-full rounded-2xl border-2 border-night/15 bg-white px-4 py-3 transition focus:border-ultra; }
+  .input[aria-invalid='true'] { @apply border-red-600; }
+  .error { @apply mt-1 min-h-5 text-sm font-medium text-red-700; }
+}
+
+@layer base {
+  :focus-visible { @apply outline outline-4 outline-offset-2 outline-ultra; }
+  .bg-night :focus-visible, .bg-ultra :focus-visible { @apply outline-sun; }
+  .bg-white :focus-visible { @apply outline-ultra; }
+}
+
+/* Поява блоків під час прокручування (працює лише з JavaScript) */
+.js .reveal { opacity: 0; translate: 0 40px; transition: opacity .7s ease, translate .7s cubic-bezier(.2,.8,.2,1); }
+.js .reveal-left { translate: -60px 0; }
+.js .reveal-right { translate: 60px 0; }
+.js .reveal.is-visible { opacity: 1; translate: 0 0; }
+
+.marquee:hover { animation-play-state: paused; }
+
+/* Галочка у вікні успіху малюється штрихом */
+.check-circle { stroke-dasharray: 151; stroke-dashoffset: 151; }
+.check-mark { stroke-dasharray: 36; stroke-dashoffset: 36; }
+dialog[open] .check-circle { animation: draw .6s ease-out forwards; }
+dialog[open] .check-mark { animation: draw .4s .55s ease-out forwards; }
+
+.swiper-pagination-bullet-active { background: #3141C8 !important; }
+
+/* Користувачі, які вимкнули анімації в системі, бачать усе одразу */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; translate: none; transition: none; }
+  dialog[open] .check-circle, dialog[open] .check-mark { animation: none; stroke-dashoffset: 0; }
+}

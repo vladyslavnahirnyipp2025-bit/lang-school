@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth motion-reduce:scroll-auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Репліка — школа іноземних мов, де вчать розмовляти</title>
+  <meta name="description" content="Англійська, німецька, іспанська та польська в малих групах. Тест рівня, розрахунок вартості курсу й запис на пробний урок.">
+  <meta name="theme-color" content="#3141C8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%233141C8' d='M4 4h24v19H15l-7 6v-6H4z'/%3E%3Ccircle cx='11' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='17' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='23' cy='14' r='2.2' fill='%23FFD23F'/%3E%3C/svg%3E">
+
+  <!-- Клас js вмикає анімації появи. Без JavaScript увесь вміст видно одразу. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="overflow-x-hidden bg-paper font-sans text-night antialiased">
+  <a class="sr-only z-50 rounded-full bg-sun px-4 py-2 font-semibold focus:not-sr-only focus:fixed focus:left-4 focus:top-4" href="#main">Перейти до вмісту</a>
+
+  <!-- Смужка прогресу прокручування -->
+  <div class="pointer-events-none fixed inset-x-0 top-0 z-40 h-1" aria-hidden="true">
+    <div id="scroll-progress" class="h-full origin-left scale-x-0 bg-sun"></div>
+  </div>
+
+  <header id="header" class="fixed inset-x-0 top-0 z-30 transition-all duration-300">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+      <a class="flex items-center gap-2 font-display text-xl font-bold" href="#top">
+        <svg class="size-9" viewBox="0 0 32 32" aria-hidden="true"><path fill="#3141C8" d="M4 4h24v19H15l-7 6v-6H4z"/><circle cx="11" cy="14" r="2.2" fill="#FFD23F"/><circle cx="17" cy="14" r="2.2" fill="#FFD23F"/><circle cx="23" cy="14" r="2.2" fill="#FFD23F"/></svg>
+        Репліка
+      </a>
+      <button id="menu-button" class="grid size-11 place-items-center rounded-full bg-night text-white lg:hidden" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav id="nav" class="absolute inset-x-4 top-full hidden rounded-3xl bg-white p-4 shadow-xl lg:static lg:block lg:bg-transparent lg:p-0 lg:shadow-none" aria-label="Головне меню">
+        <ul class="flex flex-col gap-1 font-medium lg:flex-row lg:items-center lg:gap-7">
+          <li><a class="nav-link" href="#courses">Мови</a></li>
+          <li><a class="nav-link" href="#path">Шлях навчання</a></li>
+          <li><a class="nav-link" href="#test">Тест рівня</a></li>
+          <li><a class="nav-link" href="#price">Вартість</a></li>
+          <li><a class="nav-link" href="#reviews">Відгуки</a></li>
+          <li><a class="btn btn-primary mt-2 w-full lg:mt-0 lg:w-auto" href="#signup">Пробний урок</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="overflow-x-clip">
+    <!-- 1. Перший екран із живим діалогом -->
+    <section id="top" class="relative isolate flex min-h-screen items-center overflow-hidden px-4 pb-16 pt-28" aria-labelledby="hero-title">
+      <div class="absolute inset-0 -z-10" aria-hidden="true">
+        <span class="float-word left-[4%] top-[18%] text-sun">Hello</span>
+        <span class="float-word right-[6%] top-[14%] text-coral [animation-delay:-2s]">¡Hola!</span>
+        <span class="float-word bottom-[10%] left-[42%] text-mint [animation-delay:-4s]">Cześć</span>
+        <span class="float-word bottom-[16%] right-[3%] text-sky [animation-delay:-5.5s]">Hallo</span>
+      </div>
+
+      <div class="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
+        <div>
+          <h1 id="hero-title" class="font-display text-4xl font-extrabold leading-[1.1] sm:text-5xl lg:text-6xl">
+            <span class="block animate-rise motion-reduce:animate-none">Заговоріть,</span>
+            <span class="block animate-rise [animation-delay:.15s] motion-reduce:animate-none">а не зубріть</span>
+          </h1>
+          <p class="mt-6 max-w-xl animate-rise text-lg text-night/80 [animation-delay:.3s] motion-reduce:animate-none">
+            Школа «Репліка»: англійська, німецька, іспанська та польська в малих групах. Більшу частину уроку говорите ви, а не викладач.
+          </p>
+          <div class="mt-8 flex animate-rise flex-wrap gap-3 [animation-delay:.45s] motion-reduce:animate-none">
+            <a class="btn btn-primary" href="#signup">Записатися на пробний урок</a>
+            <a class="btn btn-ghost" href="#test">Перевірити рівень</a>
+          </div>
+        </div>
+
+        <!-- Живий діалог: репліки додає assets/js/hero.js -->
+        <div class="animate-rise rounded-[2rem] bg-ultra p-5 text-white shadow-2xl shadow-ultra/40 [animation-delay:.25s] motion-reduce:animate-none sm:p-7">
+          <div class="flex flex-wrap gap-2" role="group" aria-label="Мова прикладу розмови">
+            <button class="lang-tab" type="button" data-lang="en" aria-pressed="true">English</button>
+            <button class="lang-tab" type="button" data-lang="de" aria-pressed="false">Deutsch</button>
+            <button class="lang-tab" type="button" data-lang="es" aria-pressed="false">Español</button>
+            <button class="lang-tab" type="button" data-lang="pl" aria-pressed="false">Polski</button>
+          </div>
+          <div id="chat" class="mt-5 flex h-80 flex-col justify-end gap-3 overflow-hidden"></div>
+          <div class="mt-4 flex items-center justify-between gap-3 text-sm text-white/80">
+            <p>Натисніть на репліку, щоб побачити переклад.</p>
+            <button id="chat-pause" class="shrink-0 rounded-full border border-white/40 px-3 py-1.5 font-medium hover:bg-white/10" type="button" aria-pressed="false">Пауза</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Рухома стрічка привітань (декоративна) -->
+    <div class="-rotate-2 scale-105 overflow-hidden bg-night py-4 text-white" aria-hidden="true">
+      <div class="marquee flex w-max animate-marquee font-display text-2xl font-bold motion-reduce:animate-none">
+        <p class="marquee-line">Good morning <b class="text-sun">✦</b> Guten Tag <b class="text-coral">✦</b> Buenos días <b class="text-mint">✦</b> Dzień dobry <b class="text-sky">✦</b> How are you? <b class="text-sun">✦</b> Wie geht’s? <b class="text-coral">✦</b></p>
+        <p class="marquee-line">Good morning <b class="text-sun">✦</b> Guten Tag <b class="text-coral">✦</b> Buenos días <b class="text-mint">✦</b> Dzień dobry <b class="text-sky">✦</b> How are you? <b class="text-sun">✦</b> Wie geht’s? <b class="text-coral">✦</b></p>
+      </div>
+    </div>
+
+    <!-- 2. Мови: картки, що перевертаються -->
+    <section id="courses" class="section" aria-labelledby="courses-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="courses-title" class="title reveal">Оберіть мову, якою хочете говорити</h2>
+        <p class="lead reveal">Натисніть на картку: на звороті програма курсу й фраза, яку скажете вже на першому уроці.</p>
+        <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <li class="reveal [transition-delay:0ms]">
+            <button class="flip" type="button" aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face bg-sky"><span class="font-display text-7xl font-extrabold">Aa</span><span><span class="card-name">Англійська</span><span class="block">для роботи, подорожей та іспитів</span></span></span>
+                <span class="flip-face flip-back"><span class="phrase" lang="en">“Could you say that again?”</span><span>Повторіть, будь ласка.</span><span class="font-semibold">Рівні A1–C1. Розмовні клуби щосуботи.</span></span>
+              </span>
+            </button>
+          </li>
+          <li class="reveal [transition-delay:100ms]">
+            <button class="flip" type="button" aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face bg-sun"><span class="font-display text-7xl font-extrabold">Ää</span><span><span class="card-name">Німецька</span><span class="block">для навчання та роботи за кордоном</span></span></span>
+                <span class="flip-face flip-back"><span class="phrase" lang="de">„Ich lerne gerade Deutsch.“</span><span>Я зараз вивчаю німецьку.</span><span class="font-semibold">Рівні A1–B2. Підготовка до іспитів.</span></span>
+              </span>
+            </button>
+          </li>
+          <li class="reveal [transition-delay:200ms]">
+            <button class="flip" type="button" aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face bg-coral"><span class="font-display text-7xl font-extrabold">Ññ</span><span><span class="card-name">Іспанська</span><span class="block">для подорожей і задоволення</span></span></span>
+                <span class="flip-face flip-back"><span class="phrase" lang="es">«¿Me puedes ayudar?»</span><span>Можеш мені допомогти?</span><span class="font-semibold">Рівні A1–B2. Уроки з піснями та фільмами.</span></span>
+              </span>
+            </button>
+          </li>
+          <li class="reveal [transition-delay:300ms]">
+            <button class="flip" type="button" aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face bg-mint"><span class="font-display text-7xl font-extrabold">Łł</span><span><span class="card-name">Польська</span><span class="block">для переїзду, вступу й роботи</span></span></span>
+                <span class="flip-face flip-back"><span class="phrase" lang="pl">„Poproszę kawę.”</span><span>Каву, будь ласка.</span><span class="font-semibold">Рівні A1–B2. Побутові та ділові теми.</span></span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Шлях навчання: лінія малюється під час прокручування -->
+    <section id="path" class="section bg-white" aria-labelledby="path-title">
+      <div class="mx-auto max-w-3xl">
+        <h2 id="path-title" class="title reveal">Від першої фрази до вільної розмови</h2>
+        <p class="lead reveal">Рівні йдуть за європейською шкалою CEFR. На кожному ви знаєте, що вже вмієте і що буде далі.</p>
+        <div id="timeline" class="relative mt-12">
+          <div class="absolute bottom-0 left-6 top-0 w-1 rounded bg-night/10" aria-hidden="true"><div id="timeline-fill" class="h-full w-full origin-top scale-y-0 rounded bg-ultra"></div></div>
+          <ol class="space-y-10">
+            <li class="step"><span class="step-badge">A1</span><div><h3 class="step-title">Знайомство</h3><p>Називаєте себе, питаєте дорогу, замовляєте їжу.</p></div></li>
+            <li class="step"><span class="step-badge">A2</span><div><h3 class="step-title">Щоденні ситуації</h3><p>Розповідаєте про свій день і підтримуєте коротку бесіду.</p></div></li>
+            <li class="step"><span class="step-badge">B1</span><div><h3 class="step-title">Самостійність</h3><p>Пояснюєте свою думку та даєте собі раду в поїздці.</p></div></li>
+            <li class="step"><span class="step-badge">B2</span><div><h3 class="step-title">Впевненість</h3><p>Проходите співбесіду й дивитеся фільми без перекладу.</p></div></li>
+            <li class="step"><span class="step-badge">C1</span><div><h3 class="step-title">Свобода</h3><p>Ведете переговори, жартуєте й помічаєте відтінки значень.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Тест рівня -->
+    <section id="test" class="section bg-night text-white" aria-labelledby="test-title">
+      <div class="mx-auto max-w-3xl">
+        <h2 id="test-title" class="title reveal">Тест рівня англійської</h2>
+        <p class="lead reveal !text-white/80">9 запитань, близько 3 хвилин. Результат орієнтовний: точний рівень визначить викладач на пробному уроці.</p>
+        <div class="reveal relative mt-10 overflow-hidden rounded-[2rem] bg-white p-6 text-night sm:p-10">
+          <div id="quiz" aria-live="polite">
+            <p class="text-night/70">Тесту потрібен увімкнений JavaScript.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Калькулятор вартості -->
+    <section id="price" class="section" aria-labelledby="price-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="price-title" class="title reveal">Порахуйте вартість курсу</h2>
+        <p class="lead reveal">Ціни демонстраційні. Одне заняття триває 60 хвилин.</p>
+        <div class="mt-12 grid gap-6 lg:grid-cols-[1.2fr_.8fr]">
+          <!-- [html-validate-disable-next wcag/h32 -- калькулятор рахує одразу, кнопка надсилання не потрібна] -->
+          <form id="calc" class="reveal space-y-8 rounded-[2rem] bg-white p-6 shadow-xl shadow-ultra/10 sm:p-10" novalidate>
+            <fieldset>
+              <legend class="field-label">Мова</legend>
+              <div class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                <label class="chip"><input class="peer sr-only" type="radio" name="language" value="en" checked><span>Англійська</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="language" value="de"><span>Німецька</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="language" value="es"><span>Іспанська</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="language" value="pl"><span>Польська</span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="field-label">Формат</legend>
+              <div class="mt-3 grid gap-2 sm:grid-cols-3">
+                <label class="chip"><input class="peer sr-only" type="radio" name="format" value="group" checked><span>Група до 6 осіб</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="format" value="pair"><span>У парі</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="format" value="solo"><span>Індивідуально</span></label>
+              </div>
+            </fieldset>
+            <div>
+              <div class="flex items-baseline justify-between gap-3"><label class="field-label" for="per-week">Занять на тиждень</label><output id="per-week-out" class="font-display text-2xl font-bold text-ultra" for="per-week">2</output></div>
+              <input id="per-week" class="range" type="range" name="perWeek" min="1" max="4" step="1" value="2">
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between gap-3"><label class="field-label" for="months">Тривалість, місяців</label><output id="months-out" class="font-display text-2xl font-bold text-ultra" for="months">3</output></div>
+              <input id="months" class="range" type="range" name="months" min="1" max="12" step="1" value="3">
+              <p class="mt-2 text-sm text-night/70">Знижка: від 3 місяців 5 %, від 6 місяців 10 %, за 12 місяців 15 %.</p>
+            </div>
+          </form>
+
+          <div class="reveal flex flex-col justify-between rounded-[2rem] bg-ultra p-6 text-white sm:p-10">
+            <div aria-live="polite">
+              <p class="text-white/80">Платіж на місяць</p>
+              <p class="mt-1 font-display text-5xl font-extrabold tabular-nums"><span id="r-monthly">—</span> <span class="text-2xl">грн</span></p>
+              <dl class="mt-8 space-y-3 border-t border-white/20 pt-6">
+                <div class="result-row"><dt>Усього занять</dt><dd id="r-lessons">—</dd></div>
+                <div class="result-row"><dt>Одне заняття без знижки</dt><dd><span id="r-lesson">—</span> грн</dd></div>
+                <div class="result-row"><dt>Весь курс</dt><dd><span id="r-total">—</span> грн</dd></div>
+              </dl>
+              <p id="r-saved" class="mt-5 hidden rounded-2xl bg-sun px-4 py-3 font-semibold text-night"></p>
+            </div>
+            <a id="calc-signup" class="btn mt-8 bg-white text-ultra hover:bg-sun hover:text-night" href="#signup">Записатися з цими умовами</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Відгуки -->
+    <section id="reviews" class="section bg-white" aria-labelledby="reviews-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="reviews-title" class="title reveal">Відгуки студентів</h2>
+        <p class="lead reveal">Демонстраційні тексти для навчального проєкту. Це не відгуки реальних людей.</p>
+        <div class="swiper reveal mt-12 !pb-14">
+          <div class="swiper-wrapper">
+            <figure class="swiper-slide review bg-sky/30"><blockquote>«Через два місяці я вперше сама пояснила лікарю за кордоном, що мене турбує.»</blockquote><figcaption>Приклад: студентка курсу англійської</figcaption></figure>
+            <figure class="swiper-slide review bg-sun/30"><blockquote>«У групі шість людей, тому відмовчатися не вийде. Саме це мені й допомогло.»</blockquote><figcaption>Приклад: студент курсу німецької</figcaption></figure>
+            <figure class="swiper-slide review bg-coral/25"><blockquote>«Почала з пісень, а тепер замовляю квитки й готель іспанською.»</blockquote><figcaption>Приклад: студентка курсу іспанської</figcaption></figure>
+            <figure class="swiper-slide review bg-mint/30"><blockquote>«На уроках розігрували співбесіду. На справжній я вже не панікував.»</blockquote><figcaption>Приклад: студент курсу польської</figcaption></figure>
+            <figure class="swiper-slide review bg-sky/30"><blockquote>«Подобається, що помилки виправляють після репліки, а не перебивають.»</blockquote><figcaption>Приклад: слухач вечірньої групи</figcaption></figure>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Поширені запитання -->
+    <section class="section" aria-labelledby="faq-title">
+      <div class="mx-auto max-w-3xl">
+        <h2 id="faq-title" class="title reveal">Поширені запитання</h2>
+        <div class="mt-10 space-y-3">
+          <div class="faq reveal"><h3><button type="button" aria-expanded="false" aria-controls="faq-1">Що буде на пробному уроці?<span class="faq-icon" aria-hidden="true"></span></button></h3><div id="faq-1" class="faq-panel"><div><p>Коротка розмова з викладачем, визначення рівня та 20 хвилин практики. Після цього ви отримаєте пропозицію щодо групи.</p></div></div></div>
+          <div class="faq reveal"><h3><button type="button" aria-expanded="false" aria-controls="faq-2">Я ніколи не вчив мову. Мені підійде?<span class="faq-icon" aria-hidden="true"></span></button></h3><div id="faq-2" class="faq-panel"><div><p>Так. Групи A1 починають з нуля, а перші фрази ви скажете вже на першому занятті.</p></div></div></div>
+          <div class="faq reveal"><h3><button type="button" aria-expanded="false" aria-controls="faq-3">Що буде, якщо я пропущу заняття?<span class="faq-icon" aria-hidden="true"></span></button></h3><div id="faq-3" class="faq-panel"><div><p>Викладач надішле матеріали уроку, а тему можна повторити в розмовному клубі.</p></div></div></div>
+          <div class="faq reveal"><h3><button type="button" aria-expanded="false" aria-controls="faq-4">Заняття онлайн чи в класі?<span class="faq-icon" aria-hidden="true"></span></button></h3><div id="faq-4" class="faq-panel"><div><p>Можна обрати будь-який варіант під час запису. Програма та ціна однакові.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Запис на пробний урок -->
+    <section id="signup" class="section bg-ultra" aria-labelledby="signup-title">
+      <div class="mx-auto grid max-w-6xl items-start gap-10 lg:grid-cols-2">
+        <div class="reveal reveal-left text-white">
+          <h2 id="signup-title" class="title">Запишіться на пробний урок</h2>
+          <p class="lead !text-white/85">Перший урок безкоштовний. Заповніть форму та оберіть зручний час.</p>
+          <p class="mt-6 rounded-2xl border border-white/30 p-4 text-sm text-white/85">Це навчальний проєкт: форма перевіряє дані в браузері й нікуди їх не надсилає.</p>
+        </div>
+        <form id="signup-form" class="reveal reveal-right grid gap-5 rounded-[2rem] bg-white p-6 sm:grid-cols-2 sm:p-10" novalidate>
+          <div class="sm:col-span-2"><label class="field-label" for="name">Ім’я</label><input class="input" id="name" name="name" type="text" autocomplete="given-name" aria-describedby="name-error" required><p class="error" id="name-error"></p></div>
+          <div><label class="field-label" for="phone">Телефон</label><input class="input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+380 67 123 45 67" aria-describedby="phone-error" required><p class="error" id="phone-error"></p></div>
+          <div><label class="field-label" for="email">Пошта</label><input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="email-error" required><p class="error" id="email-error"></p></div>
+          <div><label class="field-label" for="language">Мова</label><select class="input" id="language" name="language" aria-describedby="language-error" required><option value="">Оберіть мову</option><option value="en">Англійська</option><option value="de">Німецька</option><option value="es">Іспанська</option><option value="pl">Польська</option></select><p class="error" id="language-error"></p></div>
+          <div><label class="field-label" for="time">Зручний час</label><select class="input" id="time" name="time"><option>Ранок (9:00–12:00)</option><option>День (12:00–17:00)</option><option>Вечір (17:00–21:00)</option></select></div>
+          <div class="sm:col-span-2"><label class="field-label" for="comment">Коментар (необов’язково)</label><textarea class="input min-h-24" id="comment" name="comment" maxlength="500"></textarea></div>
+          <div class="sm:col-span-2"><label class="flex items-start gap-3"><input class="mt-1 size-5 accent-ultra" id="consent" name="consent" type="checkbox" aria-describedby="consent-error" required><span>Погоджуюся на обробку введених даних для запису на урок.</span></label><p class="error" id="consent-error"></p></div>
+          <button class="btn btn-primary sm:col-span-2" type="submit">Записатися на урок</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-night px-4 py-10 text-white/80">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
+      <p><span class="font-display font-bold text-white">Репліка</span>. Навчальний проєкт, 2026.</p>
+      <a class="font-semibold text-sun hover:underline" href="#top">Повернутися на початок</a>
+    </div>
+  </footer>
+
+  <!-- Вікно успішного запису -->
+  <dialog id="success" class="w-[min(92vw,26rem)] rounded-[2rem] p-8 text-center text-night backdrop:bg-night/70 open:animate-pop motion-reduce:open:animate-none" aria-labelledby="success-title">
+    <svg class="mx-auto size-24" viewBox="0 0 52 52" fill="none" aria-hidden="true"><circle class="check-circle" cx="26" cy="26" r="24" stroke="#3DD6B0" stroke-width="3"/><path class="check-mark" d="M15 27l8 8 15-17" stroke="#3DD6B0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h2 id="success-title" class="mt-4 font-display text-2xl font-bold">Заявку заповнено</h2>
+    <p id="success-text" class="mt-3"></p>
+    <form method="dialog"><button class="btn btn-primary mt-6" type="submit">Закрити</button></form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js" defer></script>
+  <script src="assets/js/logic.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/hero.js" defer></script>
+  <script src="assets/js/quiz.js" defer></script>
+  <script src="assets/js/forms.js" defer></script>
+</body>
+</html>

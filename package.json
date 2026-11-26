@@ -1,0 +1,14 @@
+{
+  "name": "lang-school",
+  "version": "1.0.0",
+  "description": "Лендинг навчального проєкту: школа іноземних мов «Репліка»",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i src/input.css -o assets/css/styles.css --minify",
+    "test": "node --test tests/logic.test.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
