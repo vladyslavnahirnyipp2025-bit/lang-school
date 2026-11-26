@@ -93,6 +93,7 @@
   .result-row dd { @apply font-display font-bold tabular-nums; }
 
   .review { @apply !h-auto rounded-[2rem] p-8; }
+  .swiper:not(.swiper-initialized) .review { @apply mb-4; }
   .review blockquote { @apply text-xl font-medium leading-relaxed; }
   .review-author { @apply mt-6 text-sm text-night/70; }
 

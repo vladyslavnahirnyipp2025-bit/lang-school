@@ -90,9 +90,13 @@
   });
 
   // --- Слайдер відгуків (бібліотека Swiper) ---
-  if (window.Swiper) {
+  // Бібліотека потрібна лише внизу сторінки, тому не затримує перший показ.
+  const SWIPER = 'https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min';
+  const slider = document.querySelector('.swiper');
+
+  function startSlider() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    new window.Swiper('.swiper', {
+    new window.Swiper(slider, {
       slidesPerView: 1,
       spaceBetween: 24,
       rewind: true,
@@ -101,5 +105,32 @@
       pagination: { el: '.swiper-pagination', clickable: true },
       breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
     });
+  }
+
+  // Якщо завантаження не вдасться, відгуки залишаться звичайним списком
+  function loadSlider() {
+    const styles = document.createElement('link');
+    styles.rel = 'stylesheet';
+    styles.href = `${SWIPER}.css`;
+    styles.onload = () => {
+      const script = document.createElement('script');
+      script.src = `${SWIPER}.js`;
+      script.onload = startSlider;
+      document.body.append(script);
+    };
+    document.head.append(styles);
+  }
+
+  if (slider) {
+    if ('IntersectionObserver' in window) {
+      const nearby = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        nearby.disconnect();
+        loadSlider();
+      }, { rootMargin: '600px' });
+      nearby.observe(slider);
+    } else {
+      loadSlider();
+    }
   }
 })();
