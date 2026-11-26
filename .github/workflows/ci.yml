@@ -1,0 +1,48 @@
+# CI: перевірки після кожного push у main та для кожного pull request.
+# CD: сайт публікує Vercel, прив'язаний до цього репозиторію, тому токен тут не потрібен.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:        # дозволяє запустити вручну з вкладки Actions
+
+# Новий push скасовує попередню перевірку тієї самої гілки, яка ще виконується
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+# Найменші потрібні права: лише читати код
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Тести та перевірки
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Отримати код
+        uses: actions/checkout@v7
+
+      - name: Встановити Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Встановити залежності
+        run: npm ci
+
+      - name: Тести логіки та сторінок
+        run: npm test
+
+      - name: Перевірка HTML
+        run: npm run lint:html
+
+      - name: Зібраний CSS відповідає вихідним файлам
+        run: |
+          npm run build:css
+          git diff --exit-code assets/css/styles.css

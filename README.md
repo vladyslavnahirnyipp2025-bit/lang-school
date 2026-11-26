@@ -1,5 +1,7 @@
 # «Репліка» — школа іноземних мов
 
+[![CI](https://github.com/vladyslavnahirnyipp2025-bit/lang-school/actions/workflows/ci.yml/badge.svg)](https://github.com/vladyslavnahirnyipp2025-bit/lang-school/actions/workflows/ci.yml)
+
 **Сайт:** https://lang-school-pi.vercel.app/
 
 Навчальний багатосторінковий сайт: семантичний HTML, Tailwind CSS 3 (CLI), JavaScript без фреймворків.
@@ -24,8 +26,13 @@
 
 Шапка й підвал повторюються в кожному HTML-файлі, тому зміни в меню треба робити в усіх.
 
-Кольори, шрифти й анімації описані в `tailwind.config.js`, компоненти — у `src/input.css`. Тести — у `tests/logic.test.js`.
+Кольори, шрифти й анімації описані в `tailwind.config.js`, компоненти — у `src/input.css`. Тести логіки — у `tests/logic.test.js`, тести сторінок (посилання, меню, заголовки) — у `tests/pages.test.js`.
 Анімації вимикаються, якщо в системі ввімкнено «зменшення руху».
+
+## CI/CD
+
+- **CI** (`.github/workflows/ci.yml`): після кожного push у `main` і для кожного pull request GitHub Actions запускає тести, перевіряє HTML і те, що зібраний CSS не застарів.
+- **CD**: Vercel сам публікує сайт після push у `main`. Деплой не чекає на результат CI.
 
 ## Команди
 
@@ -39,6 +46,10 @@ npm run build:css
 
 ```powershell
 npm test
+```
+
+```powershell
+npm run lint:html
 ```
 
 Після збірки відкрийте `index.html` у браузері. Шрифти та Swiper завантажуються з інтернету.
