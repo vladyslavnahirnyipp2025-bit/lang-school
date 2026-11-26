@@ -37,6 +37,16 @@
   .lesson-bar { @apply flex h-8 overflow-hidden rounded-full bg-night/10; }
   .lesson-bar span { @apply h-full origin-left; }
 
+  /* Декор першого екрана */
+  .blob { @apply absolute size-72 animate-float rounded-full blur-3xl motion-reduce:animate-none sm:size-96; }
+  .dots { @apply absolute inset-0 opacity-40; background-image: radial-gradient(#3141C8 1.2px, transparent 1.3px); background-size: 28px 28px; -webkit-mask-image: radial-gradient(ellipse at center, transparent 35%, #000 100%); mask-image: radial-gradient(ellipse at center, transparent 35%, #000 100%); }
+  /* Хмаринки з фразами є лише на дуже широких екранах, де є вільне місце з боків */
+  .float-chip { @apply absolute hidden animate-float select-none whitespace-nowrap rounded-3xl rounded-bl-md px-5 py-3 text-lg font-semibold shadow-lg motion-reduce:animate-none min-[1800px]:block; }
+
+  .fact { @apply flex flex-col rounded-2xl px-4 py-3 transition duration-300 hover:-translate-y-1 motion-reduce:transform-none; }
+  .fact strong { @apply whitespace-nowrap font-display text-2xl font-extrabold; }
+  .fact span { @apply text-sm leading-snug; }
+
   .float-word { @apply absolute hidden animate-float select-none font-display text-5xl font-extrabold opacity-70 motion-reduce:animate-none lg:block; }
 
   .lang-tab { @apply rounded-full bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20; }
