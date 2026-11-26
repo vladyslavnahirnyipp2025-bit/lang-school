@@ -23,7 +23,7 @@
   const progress = document.getElementById('scroll-progress');
   const timeline = document.getElementById('timeline');
   const timelineFill = document.getElementById('timeline-fill');
-  const steps = [...timeline.querySelectorAll('.step')];
+  const steps = timeline ? [...timeline.querySelectorAll('.step')] : [];
   let waiting = false;
 
   function onScroll() {
@@ -33,6 +33,7 @@
 
     ['bg-white/90', 'shadow-lg', 'backdrop-blur'].forEach((name) => header.classList.toggle(name, window.scrollY > 20));
 
+    if (!timeline) return;
     // Лінія «доходить» до точки на 65 % висоти екрана
     const box = timeline.getBoundingClientRect();
     const line = window.innerHeight * 0.65;

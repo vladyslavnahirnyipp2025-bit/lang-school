@@ -15,6 +15,28 @@
 
   .nav-link { @apply block rounded-xl px-3 py-2 decoration-sun decoration-4 underline-offset-8 hover:underline lg:p-0; }
 
+  .nav-link[aria-current='page'] { @apply text-ultra underline; }
+  .btn[aria-current='page'] { @apply ring-4 ring-ultra/40; }
+
+  .lang-tile { @apply flex h-64 flex-col justify-between rounded-[2rem] p-6 transition duration-300 hover:-translate-y-2 hover:-rotate-2 hover:shadow-2xl motion-reduce:transform-none; }
+  .next-step { @apply block h-full rounded-[2rem] border border-white/20 p-8 transition duration-300 hover:-translate-y-2 hover:bg-white/10 motion-reduce:transform-none; }
+  .next-step p { @apply mt-3 text-white/80; }
+
+  .program { @apply flex scroll-mt-24 flex-col overflow-hidden rounded-[2rem] bg-paper; }
+  .program-topics { @apply list-disc space-y-1 pl-5 marker:text-ultra; }
+
+  .filter { @apply rounded-full border-2 border-night/15 px-4 py-2 font-semibold transition hover:border-ultra; }
+  .filter[aria-pressed='true'] { @apply border-ultra bg-ultra text-white; }
+
+  .data-table { @apply w-full min-w-[28rem] text-left; }
+  .data-table th, .data-table td { @apply border-b border-night/10 px-3 py-3; }
+  .data-table thead th { @apply text-sm text-night/70; }
+  .data-table tbody tr { @apply transition-colors hover:bg-sun/20; }
+
+  /* Смуга уроку: частини виростають по черзі */
+  .lesson-bar { @apply flex h-8 overflow-hidden rounded-full bg-night/10; }
+  .lesson-bar span { @apply h-full origin-left; }
+
   .float-word { @apply absolute hidden animate-float select-none font-display text-5xl font-extrabold opacity-70 motion-reduce:animate-none lg:block; }
 
   .lang-tab { @apply rounded-full bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20; }
@@ -89,6 +111,15 @@
 .js .reveal-right { translate: 60px 0; }
 .js .reveal.is-visible { opacity: 1; translate: 0 0; }
 
+.js .lesson-bar span { scale: 0 1; transition: scale .8s cubic-bezier(.2,.8,.2,1); }
+.js .lesson-bar.is-visible span { scale: 1 1; }
+
+/* Плавний перехід між сторінками. Без підтримки в браузері сторінка просто відкриється. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  #header { view-transition-name: site-header; }
+}
+
 .marquee:hover { animation-play-state: paused; }
 
 /* Галочка у вікні успіху малюється штрихом */
@@ -102,5 +133,6 @@ dialog[open] .check-mark { animation: draw .4s .55s ease-out forwards; }
 /* Користувачі, які вимкнули анімації в системі, бачать усе одразу */
 @media (prefers-reduced-motion: reduce) {
   .js .reveal { opacity: 1; translate: none; transition: none; }
+  .js .lesson-bar span { scale: 1 1; transition: none; }
   dialog[open] .check-circle, dialog[open] .check-mark { animation: none; stroke-dashoffset: 0; }
 }

@@ -1,6 +1,6 @@
 /** Дизайн-система школи «Репліка». Кожна мова має власний колір. */
 module.exports = {
-  content: ['./index.html', './assets/js/**/*.js'],
+  content: ['./*.html', './assets/js/**/*.js'],
   theme: {
     extend: {
       colors: {

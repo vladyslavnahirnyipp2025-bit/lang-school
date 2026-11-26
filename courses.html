@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth motion-reduce:scroll-auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мови та програми — Репліка</title>
+  <meta name="description" content="Програми курсів англійської, німецької, іспанської та польської, рівні та розклад груп.">
+  <meta name="theme-color" content="#3141C8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%233141C8' d='M4 4h24v19H15l-7 6v-6H4z'/%3E%3Ccircle cx='11' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='17' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='23' cy='14' r='2.2' fill='%23FFD23F'/%3E%3C/svg%3E">
+
+  <!-- Клас js вмикає анімації появи. Без JavaScript увесь вміст видно одразу. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="overflow-x-hidden bg-paper font-sans text-night antialiased">
+  <a class="sr-only z-50 rounded-full bg-sun px-4 py-2 font-semibold focus:not-sr-only focus:fixed focus:left-4 focus:top-4" href="#main">Перейти до вмісту</a>
+
+  <!-- Смужка прогресу прокручування -->
+  <div class="pointer-events-none fixed inset-x-0 top-0 z-40 h-1" aria-hidden="true">
+    <div id="scroll-progress" class="h-full origin-left scale-x-0 bg-sun"></div>
+  </div>
+
+  <header id="header" class="fixed inset-x-0 top-0 z-30 transition-all duration-300">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+      <a class="flex items-center gap-2 font-display text-xl font-bold" href="index.html">
+        <svg class="size-9" viewBox="0 0 32 32" aria-hidden="true"><path fill="#3141C8" d="M4 4h24v19H15l-7 6v-6H4z"/><circle cx="11" cy="14" r="2.2" fill="#FFD23F"/><circle cx="17" cy="14" r="2.2" fill="#FFD23F"/><circle cx="23" cy="14" r="2.2" fill="#FFD23F"/></svg>
+        Репліка
+      </a>
+      <button id="menu-button" class="grid size-11 place-items-center rounded-full bg-night text-white lg:hidden" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav id="nav" class="absolute inset-x-4 top-full hidden rounded-3xl bg-white p-4 shadow-xl lg:static lg:block lg:bg-transparent lg:p-0 lg:shadow-none" aria-label="Головне меню">
+        <ul class="flex flex-col gap-1 font-medium lg:flex-row lg:items-center lg:gap-7">
+          <li><a class="nav-link" href="index.html">Головна</a></li>
+          <li><a class="nav-link" href="courses.html" aria-current="page">Мови</a></li>
+          <li><a class="nav-link" href="about.html">Як ми вчимо</a></li>
+          <li><a class="nav-link" href="test.html">Тест рівня</a></li>
+          <li><a class="nav-link" href="prices.html">Вартість</a></li>
+          <li><a class="btn btn-primary mt-2 w-full lg:mt-0 lg:w-auto" href="signup.html">Пробний урок</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="overflow-x-clip">
+    <div class="relative isolate overflow-hidden px-4 pb-6 pt-32 sm:pt-40">
+      <span class="float-word right-[8%] top-[38%] -z-10 text-sun" aria-hidden="true">Hallo</span>
+      <div class="mx-auto max-w-6xl">
+        <h1 class="max-w-3xl animate-rise font-display text-4xl font-extrabold leading-tight motion-reduce:animate-none sm:text-5xl">Чотири мови, одна звичка говорити</h1>
+        <p class="lead animate-rise [animation-delay:.15s] motion-reduce:animate-none">Подивіться на програми й оберіть зручний час.</p>
+      </div>
+    </div>
+
+    <!-- 2. Мови: картки, що перевертаються -->
+    <section id="courses" class="section" aria-labelledby="courses-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="courses-title" class="title reveal">Перша фраза на кожній мові</h2>
+        <p class="lead reveal">Натисніть на картку: на звороті програма курсу й фраза, яку скажете вже на першому уроці.</p>
+        <ul class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <li class="reveal [transition-delay:0ms]">
+            <button class="flip" type="button" aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face bg-sky"><span class="font-display text-7xl font-extrabold">Aa</span><span><span class="card-name">Англійська</span><span class="block">для роботи, подорожей та іспитів</span></span></span>
+                <span class="flip-face flip-back"><span class="phrase" lang="en">“Could you say that again?”</span><span>Повторіть, будь ласка.</span><span class="font-semibold">Рівні A1–C1. Розмовні клуби щосуботи.</span></span>
+              </span>
+            </button>
+          </li>
+          <li class="reveal [transition-delay:100ms]">
+            <button class="flip" type="button" aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face bg-sun"><span class="font-display text-7xl font-extrabold">Ää</span><span><span class="card-name">Німецька</span><span class="block">для навчання та роботи за кордоном</span></span></span>
+                <span class="flip-face flip-back"><span class="phrase" lang="de">„Ich lerne gerade Deutsch.“</span><span>Я зараз вивчаю німецьку.</span><span class="font-semibold">Рівні A1–B2. Підготовка до іспитів.</span></span>
+              </span>
+            </button>
+          </li>
+          <li class="reveal [transition-delay:200ms]">
+            <button class="flip" type="button" aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face bg-coral"><span class="font-display text-7xl font-extrabold">Ññ</span><span><span class="card-name">Іспанська</span><span class="block">для подорожей і задоволення</span></span></span>
+                <span class="flip-face flip-back"><span class="phrase" lang="es">«¿Me puedes ayudar?»</span><span>Можеш мені допомогти?</span><span class="font-semibold">Рівні A1–B2. Уроки з піснями та фільмами.</span></span>
+              </span>
+            </button>
+          </li>
+          <li class="reveal [transition-delay:300ms]">
+            <button class="flip" type="button" aria-pressed="false">
+              <span class="flip-inner">
+                <span class="flip-face bg-mint"><span class="font-display text-7xl font-extrabold">Łł</span><span><span class="card-name">Польська</span><span class="block">для переїзду, вступу й роботи</span></span></span>
+                <span class="flip-face flip-back"><span class="phrase" lang="pl">„Poproszę kawę.”</span><span>Каву, будь ласка.</span><span class="font-semibold">Рівні A1–B2. Побутові та ділові теми.</span></span>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section bg-white" aria-labelledby="programs-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="programs-title" class="title reveal">Програми курсів</h2>
+        <div class="mt-10 grid gap-8 md:grid-cols-2">
+          <article id="en" class="program reveal">
+            <div class="bg-sky p-8"><h3 class="card-name">Англійська</h3><p class="mt-2 font-semibold">Рівні A1–C1</p></div>
+            <div class="flex flex-1 flex-col gap-4 p-8"><p>Тим, кому мова потрібна для роботи, подорожей або іспиту.</p><h4 class="font-semibold">Приклади тем</h4><ul class="program-topics"><li>Співбесіда та робочі дзвінки</li><li>Аеропорт, готель, лікар</li><li>Дискусії в розмовному клубі</li></ul>
+              <div class="mt-auto flex flex-wrap gap-3 pt-3"><a class="btn btn-primary" href="signup.html?language=en">Записатися</a><a class="btn btn-ghost" href="prices.html?language=en">Порахувати вартість</a></div>
+            </div>
+          </article>
+          <article id="de" class="program reveal">
+            <div class="bg-sun p-8"><h3 class="card-name">Німецька</h3><p class="mt-2 font-semibold">Рівні A1–B2</p></div>
+            <div class="flex flex-1 flex-col gap-4 p-8"><p>Тим, хто планує навчатися або працювати в німецькомовній країні.</p><h4 class="font-semibold">Приклади тем</h4><ul class="program-topics"><li>Знайомство й анкети</li><li>Оренда житла та листи</li><li>Усна частина іспиту</li></ul>
+              <div class="mt-auto flex flex-wrap gap-3 pt-3"><a class="btn btn-primary" href="signup.html?language=de">Записатися</a><a class="btn btn-ghost" href="prices.html?language=de">Порахувати вартість</a></div>
+            </div>
+          </article>
+          <article id="es" class="program reveal">
+            <div class="bg-coral p-8"><h3 class="card-name">Іспанська</h3><p class="mt-2 font-semibold">Рівні A1–B2</p></div>
+            <div class="flex flex-1 flex-col gap-4 p-8"><p>Тим, хто подорожує або вчить мову для задоволення.</p><h4 class="font-semibold">Приклади тем</h4><ul class="program-topics"><li>Кафе, ринок, транспорт</li><li>Розповіді про минулі поїздки</li><li>Пісні та сцени з фільмів</li></ul>
+              <div class="mt-auto flex flex-wrap gap-3 pt-3"><a class="btn btn-primary" href="signup.html?language=es">Записатися</a><a class="btn btn-ghost" href="prices.html?language=es">Порахувати вартість</a></div>
+            </div>
+          </article>
+          <article id="pl" class="program reveal">
+            <div class="bg-mint p-8"><h3 class="card-name">Польська</h3><p class="mt-2 font-semibold">Рівні A1–B2</p></div>
+            <div class="flex flex-1 flex-col gap-4 p-8"><p>Тим, хто готується до переїзду, вступу чи роботи.</p><h4 class="font-semibold">Приклади тем</h4><ul class="program-topics"><li>Документи та установи</li><li>Навчання в університеті</li><li>Ділове спілкування</li></ul>
+              <div class="mt-auto flex flex-wrap gap-3 pt-3"><a class="btn btn-primary" href="signup.html?language=pl">Записатися</a><a class="btn btn-ghost" href="prices.html?language=pl">Порахувати вартість</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="schedule-title">
+      <div class="mx-auto max-w-4xl">
+        <h2 id="schedule-title" class="title reveal">Розклад груп</h2>
+        <p class="lead reveal">Демонстраційний розклад навчального проєкту.</p>
+        <div class="mt-8 flex flex-wrap gap-2" role="group" aria-label="Фільтр розкладу за мовою">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">Усі мови</button>
+          <button class="filter" type="button" data-filter="en" aria-pressed="false">Англійська</button>
+          <button class="filter" type="button" data-filter="de" aria-pressed="false">Німецька</button>
+          <button class="filter" type="button" data-filter="es" aria-pressed="false">Іспанська</button>
+          <button class="filter" type="button" data-filter="pl" aria-pressed="false">Польська</button>
+        </div>
+        <p id="schedule-count" class="sr-only" aria-live="polite"></p>
+        <div class="reveal mt-6 overflow-x-auto rounded-[2rem] bg-white p-4 sm:p-6">
+          <table class="data-table">
+            <thead><tr><th scope="col">Мова</th><th scope="col">Рівень</th><th scope="col">Дні</th><th scope="col">Початок</th></tr></thead>
+            <tbody id="schedule">
+              <tr data-language="en"><th scope="row">Англійська</th><td>A1</td><td>Пн, Ср</td><td>18:00</td></tr>
+              <tr data-language="en"><th scope="row">Англійська</th><td>B1</td><td>Вт, Чт</td><td>19:00</td></tr>
+              <tr data-language="en"><th scope="row">Англійська</th><td>B2</td><td>Сб</td><td>11:00</td></tr>
+              <tr data-language="de"><th scope="row">Німецька</th><td>A1</td><td>Вт, Чт</td><td>17:30</td></tr>
+              <tr data-language="de"><th scope="row">Німецька</th><td>A2</td><td>Пн, Пт</td><td>19:00</td></tr>
+              <tr data-language="es"><th scope="row">Іспанська</th><td>A1</td><td>Ср, Пт</td><td>18:30</td></tr>
+              <tr data-language="es"><th scope="row">Іспанська</th><td>B1</td><td>Сб</td><td>13:00</td></tr>
+              <tr data-language="pl"><th scope="row">Польська</th><td>A1</td><td>Пн, Ср</td><td>10:00</td></tr>
+              <tr data-language="pl"><th scope="row">Польська</th><td>B1</td><td>Вт, Чт</td><td>20:00</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-night px-4 py-10 text-white/80">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6">
+      <p><span class="font-display font-bold text-white">Репліка</span>. Навчальний проєкт, 2026.</p>
+      <nav aria-label="Меню в підвалі">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+          <li><a class="hover:text-sun hover:underline" href="courses.html">Мови</a></li>
+          <li><a class="hover:text-sun hover:underline" href="about.html">Як ми вчимо</a></li>
+          <li><a class="hover:text-sun hover:underline" href="test.html">Тест рівня</a></li>
+          <li><a class="hover:text-sun hover:underline" href="prices.html">Вартість</a></li>
+          <li><a class="hover:text-sun hover:underline" href="signup.html">Пробний урок</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/schedule.js" defer></script>
+</body>
+</html>

@@ -65,7 +65,34 @@
     return errors;
   }
 
-  const api = { calculatePrice, discountFor, levelFor, validateForm };
+  const FORMAT_NAME = { group: 'у групі', pair: 'у парі', solo: 'індивідуально' };
+
+  // Читає вибір, переданий із калькулятора, тесту чи сторінки мов.
+  // Приймає лише відомі значення: довільний текст з адреси у форму не потрапляє.
+  function prefillFromQuery(search) {
+    const query = new URLSearchParams(search);
+
+    const rawScore = query.get('score');
+    if (/^[0-9]$/.test(rawScore)) {
+      const score = Number(rawScore);
+      return { language: 'en', comment: `Результат тесту: ${levelFor(score).code} (${score} з 9).` };
+    }
+
+    const language = query.get('language');
+    if (!Object.hasOwn(LANGUAGE_RATE, language)) return null;
+
+    const format = query.get('format');
+    const perWeek = Number(query.get('perWeek'));
+    const months = Number(query.get('months'));
+    try {
+      calculatePrice({ language, format, perWeek, months });
+    } catch {
+      return { language, comment: '' };
+    }
+    return { language, comment: `Цікавить курс ${FORMAT_NAME[format]}, занять на тиждень: ${perWeek}, тривалість: ${months} міс.` };
+  }
+
+  const api = { calculatePrice, discountFor, levelFor, validateForm, prefillFromQuery };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.Logic = api;
 })(this);

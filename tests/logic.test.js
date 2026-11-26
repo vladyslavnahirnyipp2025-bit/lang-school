@@ -1,6 +1,6 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { calculatePrice, discountFor, levelFor, validateForm } = require('../assets/js/logic.js');
+const { calculatePrice, discountFor, levelFor, validateForm, prefillFromQuery } = require('../assets/js/logic.js');
 
 test('груповий курс англійської: 2 рази на тиждень, 1 місяць без знижки', () => {
   const r = calculatePrice({ language: 'en', format: 'group', perWeek: 2, months: 1 });
@@ -48,4 +48,22 @@ test('порожня заявка має помилку в кожному пол
 test('цифри в імені, короткий номер і пошта без домену не проходять', () => {
   const errors = validateForm({ name: 'Іван2', phone: '067123', email: 'a@b', language: 'en', consent: true });
   assert.deepEqual(Object.keys(errors).sort(), ['email', 'name', 'phone']);
+});
+
+test('умови калькулятора переносяться через адресу', () => {
+  assert.deepEqual(prefillFromQuery('?language=de&format=solo&perWeek=2&months=6'), {
+    language: 'de', comment: 'Цікавить курс індивідуально, занять на тиждень: 2, тривалість: 6 міс.'
+  });
+});
+
+test('результат тесту переносить рівень і мову', () => {
+  assert.deepEqual(prefillFromQuery('?score=5'), { language: 'en', comment: 'Результат тесту: B1 (5 з 9).' });
+});
+
+test('невідомі значення з адреси ігноруються', () => {
+  assert.equal(prefillFromQuery(''), null);
+  assert.equal(prefillFromQuery('?language=<script>&comment=hack'), null);
+  assert.equal(prefillFromQuery('?score=99'), null);
+  assert.equal(prefillFromQuery('?score='), null);
+  assert.deepEqual(prefillFromQuery('?language=es&format=hack&comment=hack'), { language: 'es', comment: '' });
 });

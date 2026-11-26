@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="uk" class="scroll-smooth motion-reduce:scroll-auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Вартість курсів — Репліка</title>
+  <meta name="description" content="Калькулятор вартості мовного курсу, ціни за заняття та знижки за тривалість.">
+  <meta name="theme-color" content="#3141C8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%233141C8' d='M4 4h24v19H15l-7 6v-6H4z'/%3E%3Ccircle cx='11' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='17' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='23' cy='14' r='2.2' fill='%23FFD23F'/%3E%3C/svg%3E">
+
+  <!-- Клас js вмикає анімації появи. Без JavaScript увесь вміст видно одразу. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="overflow-x-hidden bg-paper font-sans text-night antialiased">
+  <a class="sr-only z-50 rounded-full bg-sun px-4 py-2 font-semibold focus:not-sr-only focus:fixed focus:left-4 focus:top-4" href="#main">Перейти до вмісту</a>
+
+  <!-- Смужка прогресу прокручування -->
+  <div class="pointer-events-none fixed inset-x-0 top-0 z-40 h-1" aria-hidden="true">
+    <div id="scroll-progress" class="h-full origin-left scale-x-0 bg-sun"></div>
+  </div>
+
+  <header id="header" class="fixed inset-x-0 top-0 z-30 transition-all duration-300">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+      <a class="flex items-center gap-2 font-display text-xl font-bold" href="index.html">
+        <svg class="size-9" viewBox="0 0 32 32" aria-hidden="true"><path fill="#3141C8" d="M4 4h24v19H15l-7 6v-6H4z"/><circle cx="11" cy="14" r="2.2" fill="#FFD23F"/><circle cx="17" cy="14" r="2.2" fill="#FFD23F"/><circle cx="23" cy="14" r="2.2" fill="#FFD23F"/></svg>
+        Репліка
+      </a>
+      <button id="menu-button" class="grid size-11 place-items-center rounded-full bg-night text-white lg:hidden" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav id="nav" class="absolute inset-x-4 top-full hidden rounded-3xl bg-white p-4 shadow-xl lg:static lg:block lg:bg-transparent lg:p-0 lg:shadow-none" aria-label="Головне меню">
+        <ul class="flex flex-col gap-1 font-medium lg:flex-row lg:items-center lg:gap-7">
+          <li><a class="nav-link" href="index.html">Головна</a></li>
+          <li><a class="nav-link" href="courses.html">Мови</a></li>
+          <li><a class="nav-link" href="about.html">Як ми вчимо</a></li>
+          <li><a class="nav-link" href="test.html">Тест рівня</a></li>
+          <li><a class="nav-link" href="prices.html" aria-current="page">Вартість</a></li>
+          <li><a class="btn btn-primary mt-2 w-full lg:mt-0 lg:w-auto" href="signup.html">Пробний урок</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="overflow-x-clip">
+    <div class="relative isolate overflow-hidden px-4 pb-6 pt-32 sm:pt-40">
+      <span class="float-word right-[8%] top-[38%] -z-10 text-coral" aria-hidden="true">¡Hola!</span>
+      <div class="mx-auto max-w-6xl">
+        <h1 class="max-w-3xl animate-rise font-display text-4xl font-extrabold leading-tight motion-reduce:animate-none sm:text-5xl">Скільки коштує курс</h1>
+        <p class="lead animate-rise [animation-delay:.15s] motion-reduce:animate-none">Оплата залежить від мови, формату, кількості занять і тривалості.</p>
+      </div>
+    </div>
+
+    <!-- 5. Калькулятор вартості -->
+    <section id="price" class="section" aria-labelledby="price-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="price-title" class="title reveal">Порахуйте свій курс</h2>
+        <p class="lead reveal">Ціни демонстраційні. Одне заняття триває 60 хвилин.</p>
+        <div class="mt-12 grid gap-6 lg:grid-cols-[1.2fr_.8fr]">
+          <!-- [html-validate-disable-next wcag/h32 -- калькулятор рахує одразу, кнопка надсилання не потрібна] -->
+          <form id="calc" class="reveal space-y-8 rounded-[2rem] bg-white p-6 shadow-xl shadow-ultra/10 sm:p-10" novalidate>
+            <fieldset>
+              <legend class="field-label">Мова</legend>
+              <div class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                <label class="chip"><input class="peer sr-only" type="radio" name="language" value="en" checked><span>Англійська</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="language" value="de"><span>Німецька</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="language" value="es"><span>Іспанська</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="language" value="pl"><span>Польська</span></label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="field-label">Формат</legend>
+              <div class="mt-3 grid gap-2 sm:grid-cols-3">
+                <label class="chip"><input class="peer sr-only" type="radio" name="format" value="group" checked><span>Група до 6 осіб</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="format" value="pair"><span>У парі</span></label>
+                <label class="chip"><input class="peer sr-only" type="radio" name="format" value="solo"><span>Індивідуально</span></label>
+              </div>
+            </fieldset>
+            <div>
+              <div class="flex items-baseline justify-between gap-3"><label class="field-label" for="per-week">Занять на тиждень</label><output id="per-week-out" class="font-display text-2xl font-bold text-ultra" for="per-week">2</output></div>
+              <input id="per-week" class="range" type="range" name="perWeek" min="1" max="4" step="1" value="2">
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between gap-3"><label class="field-label" for="months">Тривалість, місяців</label><output id="months-out" class="font-display text-2xl font-bold text-ultra" for="months">3</output></div>
+              <input id="months" class="range" type="range" name="months" min="1" max="12" step="1" value="3">
+              <p class="mt-2 text-sm text-night/70">Знижка: від 3 місяців 5 %, від 6 місяців 10 %, за 12 місяців 15 %.</p>
+            </div>
+          </form>
+
+          <div class="reveal flex flex-col justify-between rounded-[2rem] bg-ultra p-6 text-white sm:p-10">
+            <div aria-live="polite">
+              <p class="text-white/80">Платіж на місяць</p>
+              <p class="mt-1 font-display text-5xl font-extrabold tabular-nums"><span id="r-monthly">—</span> <span class="text-2xl">грн</span></p>
+              <dl class="mt-8 space-y-3 border-t border-white/20 pt-6">
+                <div class="result-row"><dt>Усього занять</dt><dd id="r-lessons">—</dd></div>
+                <div class="result-row"><dt>Одне заняття без знижки</dt><dd><span id="r-lesson">—</span> грн</dd></div>
+                <div class="result-row"><dt>Весь курс</dt><dd><span id="r-total">—</span> грн</dd></div>
+              </dl>
+              <p id="r-saved" class="mt-5 hidden rounded-2xl bg-sun px-4 py-3 font-semibold text-night"></p>
+            </div>
+            <a id="calc-signup" class="btn mt-8 bg-white text-ultra hover:bg-sun hover:text-night" href="signup.html">Записатися з цими умовами</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white" aria-labelledby="table-title">
+      <div class="mx-auto max-w-4xl">
+        <h2 id="table-title" class="title reveal">Ціна одного заняття</h2>
+        <p class="lead reveal">Без знижки, 60 хвилин. Ціни демонстраційні.</p>
+        <div class="reveal mt-8 overflow-x-auto rounded-[2rem] bg-paper p-4 sm:p-6">
+          <table class="data-table">
+            <thead><tr><th scope="col">Мова</th><th scope="col">У групі</th><th scope="col">У парі</th><th scope="col">Індивідуально</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Англійська</th><td>280 грн</td><td>420 грн</td><td>600 грн</td></tr>
+              <tr><th scope="row">Німецька</th><td>308 грн</td><td>462 грн</td><td>660 грн</td></tr>
+              <tr><th scope="row">Іспанська</th><td>294 грн</td><td>441 грн</td><td>630 грн</td></tr>
+              <tr><th scope="row">Польська</th><td>266 грн</td><td>399 грн</td><td>570 грн</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-night px-4 py-10 text-white/80">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6">
+      <p><span class="font-display font-bold text-white">Репліка</span>. Навчальний проєкт, 2026.</p>
+      <nav aria-label="Меню в підвалі">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+          <li><a class="hover:text-sun hover:underline" href="courses.html">Мови</a></li>
+          <li><a class="hover:text-sun hover:underline" href="about.html">Як ми вчимо</a></li>
+          <li><a class="hover:text-sun hover:underline" href="test.html">Тест рівня</a></li>
+          <li><a class="hover:text-sun hover:underline" href="prices.html">Вартість</a></li>
+          <li><a class="hover:text-sun hover:underline" href="signup.html">Пробний урок</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/logic.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/calculator.js" defer></script>
+</body>
+</html>

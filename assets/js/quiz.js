@@ -116,13 +116,7 @@
     title.tabIndex = -1;
 
     const signup = el('a', 'btn btn-primary', 'Записатися на пробний урок');
-    signup.href = '#signup';
-    signup.addEventListener('click', () => {
-      // forms.js слухає цю подію й заповнює форму
-      document.dispatchEvent(new CustomEvent('prefill', {
-        detail: { language: 'en', comment: `Результат тесту: ${level.code} (${score} з ${QUESTIONS.length}).` }
-      }));
-    });
+    signup.href = `signup.html?score=${score}`;
 
     const actions = el('div', 'mt-6 flex flex-wrap gap-3');
     actions.append(signup, button('btn btn-ghost', 'Пройти ще раз', showQuestionFromStart));
