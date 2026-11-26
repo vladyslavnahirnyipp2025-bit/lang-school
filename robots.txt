@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lang-school-pi.vercel.app/sitemap.xml

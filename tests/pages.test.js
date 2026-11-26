@@ -61,3 +61,30 @@ test('кожна сторінка з меню позначає себе як п�
     assert.ok(read(page).includes(`href="${page}" aria-current="page"`), page);
   }
 });
+
+const SITE = 'https://lang-school-pi.vercel.app/';
+const attribute = (html, pattern) => (html.match(pattern) || [])[1];
+
+for (const page of PAGES.filter((file) => file !== '404.html')) {
+  test(`${page}: SEO-теги на місці`, () => {
+    const html = read(page);
+    const url = page === 'index.html' ? SITE : SITE + page;
+    const title = attribute(html, /<title>([^<]*)<\/title>/);
+    const description = attribute(html, /<meta name="description" content="([^"]*)"/);
+    assert.ok(title.length >= 30 && title.length <= 60, `title: ${title.length}`);
+    assert.ok(description.length >= 70 && description.length <= 160, `description: ${description.length}`);
+    assert.equal(attribute(html, /<link rel="canonical" href="([^"]*)"/), url);
+    assert.equal(attribute(html, /<meta property="og:url" content="([^"]*)"/), url);
+    assert.equal(attribute(html, /<meta property="og:title" content="([^"]*)"/), title);
+    const image = attribute(html, /<meta property="og:image" content="([^"]*)"/);
+    assert.ok(image.startsWith(SITE) && fs.existsSync(path.join(ROOT, image.slice(SITE.length))), image);
+  });
+}
+
+test('sitemap.xml містить усі сторінки, а robots.txt на нього посилається', () => {
+  const sitemap = read('sitemap.xml');
+  for (const page of PAGES.filter((file) => file !== '404.html')) {
+    assert.ok(sitemap.includes(`<loc>${page === 'index.html' ? SITE : SITE + page}</loc>`), page);
+  }
+  assert.ok(read('robots.txt').includes(`Sitemap: ${SITE}sitemap.xml`));
+});

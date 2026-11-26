@@ -13,14 +13,15 @@ module.exports = {
         sky: '#8EB8FF'
       },
       fontFamily: {
-        sans: ['Onest', 'system-ui', 'sans-serif'],
-        display: ['Unbounded', 'Onest', 'system-ui', 'sans-serif']
+        sans: ['Onest', '"Onest Fallback"', 'system-ui', 'sans-serif'],
+        display: ['Unbounded', '"Unbounded Fallback"', 'system-ui', 'sans-serif']
       },
       // Власні анімації: спочатку кадри (keyframes), потім класи animate-*
       keyframes: {
+        // Без opacity: прозорий на старті текст погіршував показник LCP
         rise: {
-          '0%': { opacity: '0', transform: 'translateY(32px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' }
+          '0%': { transform: 'translateY(32px)' },
+          '100%': { transform: 'translateY(0)' }
         },
         pop: {
           '0%': { opacity: '0', transform: 'scale(.6) translateY(12px)' },

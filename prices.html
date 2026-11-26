@@ -3,8 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Вартість курсів — Репліка</title>
+  <title>Вартість курсів іноземних мов і калькулятор — Репліка</title>
   <meta name="description" content="Калькулятор вартості мовного курсу, ціни за заняття та знижки за тривалість.">
+  <link rel="canonical" href="https://lang-school-pi.vercel.app/prices.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:site_name" content="Репліка">
+  <meta property="og:title" content="Вартість курсів іноземних мов і калькулятор — Репліка">
+  <meta property="og:description" content="Калькулятор вартості мовного курсу, ціни за заняття та знижки за тривалість.">
+  <meta property="og:url" content="https://lang-school-pi.vercel.app/prices.html">
+  <meta property="og:image" content="https://lang-school-pi.vercel.app/assets/images/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Репліка: заговоріть, а не зубріть">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#3141C8">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%233141C8' d='M4 4h24v19H15l-7 6v-6H4z'/%3E%3Ccircle cx='11' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='17' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='23' cy='14' r='2.2' fill='%23FFD23F'/%3E%3C/svg%3E">
 
@@ -13,7 +25,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="overflow-x-hidden bg-paper font-sans text-night antialiased">
@@ -48,7 +61,7 @@
 
   <main id="main" class="overflow-x-clip">
     <div class="relative isolate overflow-hidden px-4 pb-6 pt-32 sm:pt-40">
-      <span class="float-word right-[8%] top-[38%] -z-10 text-coral" aria-hidden="true">¡Hola!</span>
+      <span class="float-word right-[8%] top-[38%] -z-10 text-coral" data-word="¡Hola!" aria-hidden="true"></span>
       <div class="mx-auto max-w-6xl">
         <h1 class="max-w-3xl animate-rise font-display text-4xl font-extrabold leading-tight motion-reduce:animate-none sm:text-5xl">Скільки коштує курс</h1>
         <p class="lead animate-rise [animation-delay:.15s] motion-reduce:animate-none">Оплата залежить від мови, формату, кількості занять і тривалості.</p>
@@ -125,6 +138,29 @@
         </div>
       </div>
     </section>
+    <section class="section" aria-labelledby="format-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="format-title" class="title reveal">Як обрати формат</h2>
+        <p class="lead reveal">Тривалість уроку та підхід однакові для всіх форматів. Різниця в тому, скільки часу ви говорите особисто й наскільки гнучкою буде програма.</p>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Група</h3><p class="mt-3 leading-relaxed text-night/80">Найдоступніший варіант. До шести людей, багато розмов у парах і можливість почути різні манери мовлення. Підходить, якщо вам подобається вчитися в компанії та мати постійний розклад.</p></div>
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Пара</h3><p class="mt-3 leading-relaxed text-night/80">Заняття удвох із другом, колегою чи партнером. Кожен говорить більше, ніж у групі, а теми можна підібрати під спільну мету, наприклад подорож або переїзд.</p></div>
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Індивідуально</h3><p class="mt-3 leading-relaxed text-night/80">Програма та темп підлаштовані лише під вас. Варто обрати, якщо є конкретний термін: співбесіда, іспит чи від’їзд, або коли потрібен незвичний графік.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white" aria-labelledby="count-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="count-title" class="title reveal">Як рахується сума</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <div class="reveal rounded-3xl bg-paper p-6 sm:p-8"><h3 class="step-title">Кількість занять</h3><p class="mt-3 leading-relaxed text-night/80">Місяць у розрахунку дорівнює чотирьом тижням. Наприклад, два заняття на тиждень упродовж трьох місяців — це двадцять чотири уроки по шістдесят хвилин.</p></div>
+          <div class="reveal rounded-3xl bg-paper p-6 sm:p-8"><h3 class="step-title">Знижка</h3><p class="mt-3 leading-relaxed text-night/80">Вона залежить тільки від тривалості: від трьох місяців п’ять відсотків, від шести — десять, за дванадцять — п’ятнадцять. Знижка застосовується до всієї суми курсу.</p></div>
+          <div class="reveal rounded-3xl bg-paper p-6 sm:p-8"><h3 class="step-title">Платіж на місяць</h3><p class="mt-3 leading-relaxed text-night/80">Це вартість курсу з урахуванням знижки, поділена на кількість місяців і округлена до гривні. Усі ціни демонстраційні, бо школа є навчальним проєктом.</p></div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="bg-night px-4 py-10 text-white/80">

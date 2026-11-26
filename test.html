@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Тест рівня англійської — Репліка</title>
   <meta name="description" content="Короткий тест з англійської: 9 запитань і орієнтовний рівень за шкалою CEFR.">
+  <link rel="canonical" href="https://lang-school-pi.vercel.app/test.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:site_name" content="Репліка">
+  <meta property="og:title" content="Тест рівня англійської — Репліка">
+  <meta property="og:description" content="Короткий тест з англійської: 9 запитань і орієнтовний рівень за шкалою CEFR.">
+  <meta property="og:url" content="https://lang-school-pi.vercel.app/test.html">
+  <meta property="og:image" content="https://lang-school-pi.vercel.app/assets/images/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Репліка: заговоріть, а не зубріть">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#3141C8">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%233141C8' d='M4 4h24v19H15l-7 6v-6H4z'/%3E%3Ccircle cx='11' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='17' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='23' cy='14' r='2.2' fill='%23FFD23F'/%3E%3C/svg%3E">
 
@@ -13,7 +25,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="overflow-x-hidden bg-paper font-sans text-night antialiased">
@@ -48,7 +61,7 @@
 
   <main id="main" class="overflow-x-clip">
     <div class="relative isolate overflow-hidden px-4 pb-6 pt-32 sm:pt-40">
-      <span class="float-word right-[8%] top-[38%] -z-10 text-coral" aria-hidden="true">Hello</span>
+      <span class="float-word right-[8%] top-[38%] -z-10 text-coral" data-word="Hello" aria-hidden="true"></span>
       <div class="mx-auto max-w-6xl">
         <h1 class="max-w-3xl animate-rise font-display text-4xl font-extrabold leading-tight motion-reduce:animate-none sm:text-5xl">Тест рівня англійської</h1>
         <p class="lead animate-rise [animation-delay:.15s] motion-reduce:animate-none">9 запитань, близько 3 хвилин. Результат орієнтовний: точний рівень визначить викладач на пробному уроці.</p>
@@ -58,6 +71,7 @@
     <!-- 4. Тест рівня -->
     <section id="test" class="section bg-night text-white" aria-label="Тест рівня англійської">
       <div class="mx-auto max-w-3xl">
+        <h2 class="sr-only">Пройдіть тест онлайн</h2>
         <div class="reveal relative overflow-hidden rounded-[2rem] bg-white p-6 text-night sm:p-10">
           <div id="quiz" aria-live="polite">
             <p class="text-night/70">Тесту потрібен увімкнений JavaScript.</p>
@@ -83,6 +97,29 @@
         </div>
       </div>
     </section>
+    <section class="section bg-white" aria-labelledby="how-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="how-title" class="title reveal">Як влаштований тест</h2>
+        <p class="lead reveal">Тест проходить прямо в браузері, без реєстрації. Ваші відповіді нікуди не надсилаються. Після останнього запитання ви побачите рівень і коротке пояснення, з чого варто продовжити навчання. Починати можна в будь-який момент, а за потреби пройти все спочатку.</p>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <div class="reveal rounded-3xl bg-paper p-6 sm:p-8"><h3 class="step-title">Що перевіряється</h3><p class="mt-3 leading-relaxed text-night/80">Запитання охоплюють дієслово «to be», теперішній і минулий час, порівняння, прийменники часу, умовні речення та складніші конструкції. Перші завдання прості, а кожне наступне зазвичай складніше за попереднє.</p></div>
+          <div class="reveal rounded-3xl bg-paper p-6 sm:p-8"><h3 class="step-title">Як отримати чесний результат</h3><p class="mt-3 leading-relaxed text-night/80">Відповідайте самостійно, без перекладача й підказок. Якщо не знаєте відповіді, оберіть ту, що здається природною. Після вибору тест одразу покаже правильний варіант, а змінити відповідь уже не можна.</p></div>
+          <div class="reveal rounded-3xl bg-paper p-6 sm:p-8"><h3 class="step-title">Чого тест не показує</h3><p class="mt-3 leading-relaxed text-night/80">Тут немає завдань на слухання, вимову та вільне мовлення, тому результат лише орієнтовний. Людина може добре знати граматику, але губитися в розмові, або навпаки. Це з’ясовує викладач на пробному уроці.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="next-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="next-title" class="title reveal">Що робити з результатом</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Запишіться з готовим рівнем</h3><p class="mt-3 leading-relaxed text-night/80">Кнопка під результатом відкриває форму, де вже обрано англійську, а в коментарі вказано ваш рівень і кількість правильних відповідей.</p></div>
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Порахуйте курс</h3><p class="mt-3 leading-relaxed text-night/80">На сторінці вартості оберіть формат, кількість занять на тиждень і тривалість. Калькулятор покаже щомісячний платіж та знижку.</p></div>
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Пройдіть тест пізніше</h3><p class="mt-3 leading-relaxed text-night/80">Повторна спроба з тими самими запитаннями покаже, чи ви пам’ятаєте відповіді, але не замінить перевірку прогресу з викладачем.</p></div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="bg-night px-4 py-10 text-white/80">

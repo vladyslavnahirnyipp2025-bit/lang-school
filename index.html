@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Репліка — школа іноземних мов, де вчать розмовляти</title>
   <meta name="description" content="Англійська, німецька, іспанська та польська в малих групах. Тест рівня, розрахунок вартості курсу й запис на пробний урок.">
+  <link rel="canonical" href="https://lang-school-pi.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:site_name" content="Репліка">
+  <meta property="og:title" content="Репліка — школа іноземних мов, де вчать розмовляти">
+  <meta property="og:description" content="Англійська, німецька, іспанська та польська в малих групах. Тест рівня, розрахунок вартості курсу й запис на пробний урок.">
+  <meta property="og:url" content="https://lang-school-pi.vercel.app/">
+  <meta property="og:image" content="https://lang-school-pi.vercel.app/assets/images/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Репліка: заговоріть, а не зубріть">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#3141C8">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%233141C8' d='M4 4h24v19H15l-7 6v-6H4z'/%3E%3Ccircle cx='11' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='17' cy='14' r='2.2' fill='%23FFD23F'/%3E%3Ccircle cx='23' cy='14' r='2.2' fill='%23FFD23F'/%3E%3C/svg%3E">
 
@@ -13,8 +25,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css"></noscript>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="overflow-x-hidden bg-paper font-sans text-night antialiased">
@@ -63,10 +77,10 @@
         <span class="float-chip right-[23%] top-[13%] bg-white [animation-delay:-6s]">Genau!</span>
         <span class="float-chip left-[24%] bottom-[7%] bg-white [animation-delay:-2.5s]">¡Vamos!</span>
         <span class="float-chip right-[24%] bottom-[8%] bg-white [animation-delay:-4.5s]">Świetnie!</span>
-        <span class="float-word left-[4%] top-[18%] text-sun">Hello</span>
-        <span class="float-word right-[6%] top-[14%] text-coral [animation-delay:-2s]">¡Hola!</span>
-        <span class="float-word bottom-[2%] left-[42%] text-mint [animation-delay:-4s]">Cześć</span>
-        <span class="float-word bottom-[3%] right-[2%] text-sky [animation-delay:-5.5s]">Hallo</span>
+        <span class="float-word left-[4%] top-[18%] text-sun" data-word="Hello" aria-hidden="true"></span>
+        <span class="float-word right-[6%] top-[14%] text-coral [animation-delay:-2s]" data-word="¡Hola!" aria-hidden="true"></span>
+        <span class="float-word bottom-[2%] left-[42%] text-mint [animation-delay:-4s]" data-word="Cześć" aria-hidden="true"></span>
+        <span class="float-word bottom-[3%] right-[2%] text-sky [animation-delay:-5.5s]" data-word="Hallo" aria-hidden="true"></span>
       </div>
 
       <div class="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_.9fr] 2xl:max-w-7xl">
@@ -138,6 +152,17 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="why-title">
+      <div class="mx-auto max-w-6xl">
+        <h2 id="why-title" class="title reveal">Чому ми так багато говоримо</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Мова оживає в розмові</h3><p class="mt-3 leading-relaxed text-night/80">Правило, прочитане в підручнику, швидко забувається. Коли ви самі будуєте з ним фразу й отримуєте відповідь, воно запам’ятовується разом із ситуацією.</p></div>
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Мала група</h3><p class="mt-3 leading-relaxed text-night/80">У групі не більше шести людей, тому кожен має час висловитися. Хто любить більше уваги, може обрати заняття в парі або індивідуально.</p></div>
+          <div class="reveal rounded-3xl bg-white p-6 sm:p-8"><h3 class="step-title">Помилки без страху</h3><p class="mt-3 leading-relaxed text-night/80">Викладач не перериває вас на півслові. Типові помилки розбираємо наприкінці уроку, щоб ви спочатку договорили думку, а потім зрозуміли, як сказати краще.</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- 6. Відгуки -->
     <section id="reviews" class="section bg-white" aria-labelledby="reviews-title">
       <div class="mx-auto max-w-6xl">
@@ -145,11 +170,11 @@
         <p class="lead reveal">Демонстраційні тексти для навчального проєкту. Це не відгуки реальних людей.</p>
         <div class="swiper reveal mt-12 !pb-14">
           <div class="swiper-wrapper">
-            <figure class="swiper-slide review bg-sky/30"><blockquote>«Через два місяці я вперше сама пояснила лікарю за кордоном, що мене турбує.»</blockquote><figcaption>Приклад: студентка курсу англійської</figcaption></figure>
-            <figure class="swiper-slide review bg-sun/30"><blockquote>«У групі шість людей, тому відмовчатися не вийде. Саме це мені й допомогло.»</blockquote><figcaption>Приклад: студент курсу німецької</figcaption></figure>
-            <figure class="swiper-slide review bg-coral/25"><blockquote>«Почала з пісень, а тепер замовляю квитки й готель іспанською.»</blockquote><figcaption>Приклад: студентка курсу іспанської</figcaption></figure>
-            <figure class="swiper-slide review bg-mint/30"><blockquote>«На уроках розігрували співбесіду. На справжній я вже не панікував.»</blockquote><figcaption>Приклад: студент курсу польської</figcaption></figure>
-            <figure class="swiper-slide review bg-sky/30"><blockquote>«Подобається, що помилки виправляють після репліки, а не перебивають.»</blockquote><figcaption>Приклад: слухач вечірньої групи</figcaption></figure>
+            <div class="swiper-slide review bg-sky/30"><blockquote>«Через два місяці я вперше сама пояснила лікарю за кордоном, що мене турбує.»</blockquote><p class="review-author">Приклад: студентка курсу англійської</p></div>
+            <div class="swiper-slide review bg-sun/30"><blockquote>«У групі шість людей, тому відмовчатися не вийде. Саме це мені й допомогло.»</blockquote><p class="review-author">Приклад: студент курсу німецької</p></div>
+            <div class="swiper-slide review bg-coral/25"><blockquote>«Почала з пісень, а тепер замовляю квитки й готель іспанською.»</blockquote><p class="review-author">Приклад: студентка курсу іспанської</p></div>
+            <div class="swiper-slide review bg-mint/30"><blockquote>«На уроках розігрували співбесіду. На справжній я вже не панікував.»</blockquote><p class="review-author">Приклад: студент курсу польської</p></div>
+            <div class="swiper-slide review bg-sky/30"><blockquote>«Подобається, що помилки виправляють після репліки, а не перебивають.»</blockquote><p class="review-author">Приклад: слухач вечірньої групи</p></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
